@@ -6,6 +6,10 @@
     <div class="col-sm-4">
       <%= form_with(model: @task, local: true) do |f| %>
         <div class="form-group">
+          <label class="ml-1 col-form-label">日程</label>
+          <div class="ml-1">
+            <%= f.date_field :scheduled_date, class: 'form-control', rows: 1 %>
+          </div>
           <label class="ml-1 col-form-label">優先度</label>
           <div class="ml-1">
             <%= f.text_area :priority, class: 'form-control', rows: 1 %>
@@ -15,7 +19,7 @@
             <%= f.text_area :content, class: 'form-control', rows: 5 %>
           </div>
         </div>
-        <%= f.submit '投稿!', class: 'btn btn-primary btn-block' %>
+        <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
       <% end %>
     </div>
   </div>

@@ -4,6 +4,11 @@ class TasksController < ApplicationController
   
   def create
     @task = current_user.tasks.build(task_params)
+    @task.done = false
+    if @task.scheduled_date == nil
+      require 'date'
+      @task.scheduled_date = Date.today
+    end
     if @task.save
       redirect_to root_url
     else
@@ -34,7 +39,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:content, :priority, :done) #done ha hyou
+    params.require(:task).permit(:content, :priority, :done, :scheduled_date) #done ha hyou
   end
 
   def correct_user
