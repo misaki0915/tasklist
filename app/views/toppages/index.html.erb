@@ -1,10 +1,15 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-8">
-      <%= render 'tasks/tasks', tasks: @tasks %>
+      <h1 class="mt-4">本日のタスク</h1>
+        <%= render 'tasks/today_tasks', tasks: @tasks %>
+      <h1 class="mt-4">明日のタスク</h1>
+   　　   <%= render 'tasks/next_tasks', tasks: @tasks %>
+      <h1 class="mt-4">明日以降のタスク</h1>
+    　　  <%= render 'tasks/future_tasks', tasks: @tasks %>
     </aside>
     <div class="col-sm-4">
-      <%= form_with(model: @task, local: true) do |f| %>
+        <%= form_with(model: @task, local: true) do |f| %>
         <div class="form-group">
           <label class="ml-1 col-form-label">日程</label>
           <div class="ml-1">

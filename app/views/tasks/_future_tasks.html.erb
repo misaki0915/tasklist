@@ -1,6 +1,8 @@
+<% require 'date' %>
 <div class=""
 <ul class="list-unstyled">
-  <% tasks.each do |task| %>
+  <% tasks.sort_by(&:scheduled_date).each do |task| %>
+  <% if task.scheduled_date > Date.tomorrow %>
     <li class="media mb-3">
       <div class="media-body">
         <div>
@@ -15,7 +17,7 @@
             <% else %>
               　
             <% end %>
-            <%= task.scheduled_date %>）<%= task.content %>
+             (<%= task.scheduled_date %>)<%= task.content %>
           </p>
         </div>
         <div>
@@ -28,5 +30,6 @@
       </div>
     </li>
   <% end %>
+<% end %>
   <%= paginate tasks %>
 </ul>
