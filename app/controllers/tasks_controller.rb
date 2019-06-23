@@ -23,6 +23,11 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
+      if @task.scheduled_date == nil
+        require 'date'
+        @task.scheduled_date = Date.today
+        @task.save
+      end
       redirect_to root_url
     else
       flash.now[:danger] = 'タスクは更新されませんでした'

@@ -10,25 +10,34 @@
   <% end %>
   <div class="row">
     <aside class="col-sm-8">
-      <h1 class="mt-4">本日のタスク</h1>
+      <h1 class="mt-4 pb-4 border-bottom">本日のタスク</h1>
         <%= render 'tasks/today_tasks', tasks: @tasks %>
-      <h1 class="mt-4">明日のタスク</h1>
+      <h2 class="mt-4 pb-4 border-bottom">明日のタスク</h1>
    　　   <%= render 'tasks/next_tasks', tasks: @tasks %>
-      <h1 class="mt-4">明日以降のタスク</h1>
+      <h3 class="mt-4 pb-4 border-bottom">明後日以降のタスク</h1>
     　　  <%= render 'tasks/future_tasks', tasks: @tasks %>
     </aside>
     <div class="col-sm-4">
         <%= form_with(model: @task, local: true) do |f| %>
-        <div class="form-group">
-          <div class="ml-1">
-            <label class="ml-1 col-form-label">日程</label><%= f.date_field :scheduled_date, class: 'form-control', rows: 1 %>
+        <div class="new_task_form">
+          <h4 class="mt-4 pb-4 border-bottom"><i class="fas fa-tasks"></i>　新規タスク追加</h3>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">日程</label>
+            <div class="col-sm-9">
+              <%= f.date_field :scheduled_date, class: 'cform-control', rows: 1 %>
+            </div>
           </div>
-          <div class="ml-1">
-            <label class="ml-1 col-form-label">優先度</label>　<%= f.select :priority, [["低", 0], ["中", 1], ["高", 2]], class: 'form-control'%>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">優先度</label>
+            <div class="col-sm-9">
+              <%= f.select :priority, [["低", 0], ["中", 1], ["高", 2]], class: 'form-control'%>
+            </div>
           </div>
-          <label class="ml-1 col-form-label">内容</label>
-          <div class="ml-1">
-            <%= f.text_area :content, class: 'form-control', rows: 5 %>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">内容</label>
+            <div class="col-sm-9">
+              <%= f.text_area :content, class: 'form-control', rows: 3 %>
+            </div>
           </div>
         </div>
         <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>

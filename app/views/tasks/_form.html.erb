@@ -8,12 +8,17 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.label :content, 'タスク内容' %>
-  <%= f.text_field :content %>
-  <label class="ml-1 col-form-label">優先度</label><%= f.select :priority, [["低", 0], ["中", 1], ["高", 2]], class: 'form-control'%>
-  <%= f.label :scheduled_date, '日程' %>
-  <%= f.date_field :scheduled_date %>
-
-  <%= f.submit '投稿' %>
+  <div class="form-group">
+    <div class="ml-1">
+      <label class="ml-1 col-form-label">日程</label><%= f.date_field :scheduled_date, class: 'form-control', rows: 1 %>
+    </div>
+    <div class="ml-1">
+      <label class="ml-1 col-form-label">優先度</label>　<%= f.select :priority, [["低", 0], ["中", 1], ["高", 2]], class: 'form-control'%>
+    </div>
+    <label class="ml-1 col-form-label">内容</label>
+    <div class="ml-1">
+      <%= f.text_area :content, class: 'form-control', rows: 2 %>
+    </div>
+  </div>
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
