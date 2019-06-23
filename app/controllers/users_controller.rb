@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
+      login @user
       redirect_to root_path
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'

@@ -11,11 +11,11 @@
   <div class="row">
     <aside class="col-sm-8">
       <h1 class="mt-4 pb-4 border-bottom">本日のタスク</h1>
-        <%= render 'tasks/today_tasks', tasks: @tasks %>
+        <%= render 'tasks/tasks', tasks: @today_tasks %>
       <h2 class="mt-4 pb-4 border-bottom">明日のタスク</h1>
-   　　   <%= render 'tasks/next_tasks', tasks: @tasks %>
-      <h3 class="mt-4 pb-4 border-bottom">明後日以降のタスク</h1>
-    　　  <%= render 'tasks/future_tasks', tasks: @tasks %>
+   　　   <%= render 'tasks/tasks', tasks: @next_tasks %>
+      <h3 class="mt-4 pb-4 border-bottom">残りのタスク</h1>
+    　　  <%= render 'tasks/tasks', tasks: @attempted_tasks %>
     </aside>
     <div class="col-sm-4">
         <%= form_with(model: @task, local: true) do |f| %>
