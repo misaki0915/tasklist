@@ -1,4 +1,13 @@
 <% if logged_in? %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @task.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="row">
     <aside class="col-sm-8">
       <h1 class="mt-4">本日のタスク</h1>
@@ -11,13 +20,11 @@
     <div class="col-sm-4">
         <%= form_with(model: @task, local: true) do |f| %>
         <div class="form-group">
-          <label class="ml-1 col-form-label">日程</label>
           <div class="ml-1">
-            <%= f.date_field :scheduled_date, class: 'form-control', rows: 1 %>
+            <label class="ml-1 col-form-label">日程</label><%= f.date_field :scheduled_date, class: 'form-control', rows: 1 %>
           </div>
-          <label class="ml-1 col-form-label">優先度</label>
           <div class="ml-1">
-            <%= f.text_area :priority, class: 'form-control', rows: 1 %>
+            <label class="ml-1 col-form-label">優先度</label>　<%= f.select :priority, [["低", 0], ["中", 1], ["高", 2]], class: 'form-control'%>
           </div>
           <label class="ml-1 col-form-label">内容</label>
           <div class="ml-1">
