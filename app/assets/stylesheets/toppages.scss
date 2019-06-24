@@ -1,0 +1,15 @@
+.user_drop {
+    position:relative;
+    width: 100%;
+    height: 40px;
+    background-color:#fafafa;
+}
+
+.user_drop .dropdown_link {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -12,7 +12,7 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><img class="mr-2 rounded" src="<%= gravatar_url(current_user, { size: 40 }) %>" alt=""><%= current_user.name %></a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item card-block user_drop"><%= link_to content_tag(:i, '', class: 'fas fa-sign-out-alt')+' Logout', logout_path, method: :delete, class: 'btn btn-bg'%></li>
+              <li class="dropdown-item card-block user_drop user_drop"><%= link_to content_tag(:i, '', class: 'fas fa-sign-out-alt')+' Logout', logout_path, method: :delete, class: 'btn dropdown_link'%></li>
             </ul>
           </li>
         <% else %>
