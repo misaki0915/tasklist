@@ -18,8 +18,8 @@
     　　  <%= render 'tasks/tasks', tasks: @attempted_tasks %>
     </aside>
     <div class="col-sm-4">
-        <%= form_with(model: @task, local: true) do |f| %>
-        <div class="new_task_form">
+      <%= form_with(model: @task, local: true) do |f| %>
+        <div class="new_task_form mb-5">
           <h4 class="mt-4 pb-4 border-bottom"><i class="fas fa-tasks"></i>　新規タスク追加</h3>
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">日程</label>
@@ -39,9 +39,16 @@
               <%= f.text_area :content, class: 'form-control', rows: 3 %>
             </div>
           </div>
+          <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+        <% end %>
+       </div>
+      <div class="daily_markdown">
+        <h4 class="mt-4 pb-4 border-bottom"><i class="fab fa-markdown"></i>　Markdown</h3>
+        # 本日のタスク
+        <%= render 'daily-report/markdown', tasks: @today_tasks %>
+        # 明日のタスク
+        <%= render 'daily-report/markdown', tasks: @next_tasks %>
         </div>
-        <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
-      <% end %>
     </div>
   </div>
 <% else %>

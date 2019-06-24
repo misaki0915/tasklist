@@ -1,0 +1,19 @@
+<div class=''>
+<ul class='list-unstyled'>
+  <% if tasks.empty? %>
+  - なし
+  <% else %>
+  <% tasks.each do |task| %>
+    <li class='media'>
+      <% if task.done == true %>
+        [x] 
+      <% elsif task.done == false %>
+        [] 
+      <% end %>
+        <%= task.content %>
+    </li>
+  <% end %>
+  <%= paginate tasks %>
+</ul>
+<% end %>
+</div>
