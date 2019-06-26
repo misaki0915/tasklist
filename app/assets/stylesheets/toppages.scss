@@ -14,13 +14,13 @@
   height: 100%;
 }
 
-h1, h2, h3{
+h2 {
   font-size: 2em;
   border-bottom: solid 3px #a9a9a9;
   position: relative;
 }
 
-h1:after, h2:after, h3:after {
+h2:after {
   position: absolute;
   content: " ";
   display: block;
@@ -28,15 +28,15 @@ h1:after, h2:after, h3:after {
   width: 20%;
 }
 
-h1:after {
+.today_tasks_title:after {
   border-bottom: solid 3px #5472cd;
 }
 
-h2:after {
+.next_tasks_title:after {
   border-bottom: solid 3px #66cdaa;
 }
 
-h3:after {
+.attempted_tasks_title:after {
   border-bottom: solid 3px #808000;
 }
 

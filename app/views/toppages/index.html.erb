@@ -10,11 +10,11 @@
   <% end %>
   <div class="row">
     <aside class="col-sm-7 mr-5">
-      <h1 class="mt-5 pb-2"><i class="fas fa-tasks mr-3"></i>本日のタスク</h1>
+      <h2 class="mt-5 pb-2 today_tasks_title"><i class="fas fa-tasks mr-3"></i>本日のタスク</h1>
         <%= render 'tasks/tasks', tasks: @today_tasks %>
-      <h2 class="mt-5 pb-2"><i class="fas fa-tasks mr-3"></i>明日のタスク</h2>
+      <h2 class="mt-5 pb-2 next_tasks_title"><i class="fas fa-tasks mr-3"></i>明日のタスク</h2>
         <%= render 'tasks/tasks', tasks: @next_tasks %>
-      <h3 class="mt-5 pb-2"><i class="fas fa-tasks mr-3"></i>残りのタスク</h3>
+      <h2 class="mt-5 pb-2 attempted_tasks_title"><i class="fas fa-tasks mr-3"></i>残りのタスク</h3>
         <%= render 'tasks/tasks', tasks: @attempted_tasks %>
     </aside>
     <div class="col-sm-4">
