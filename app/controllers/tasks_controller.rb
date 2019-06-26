@@ -12,9 +12,9 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_url
     else
-      @today_tasks = current_user.tasks.where(scheduled_date: Date.today).page(params[:page])
-      @next_tasks = current_user.tasks.where(scheduled_date: Date.tomorrow).page(params[:page])
-      @attempted_tasks = current_user.tasks.where(done: false).page(params[:page])
+      @today_tasks = current_user.tasks.where(scheduled_date: DateTime.now).order(priority: :desc).page(params[:page])
+      @next_tasks = current_user.tasks.where(scheduled_date: DateTime.now.tomorrow).order(priority: :desc).page(params[:page])
+      @attempted_tasks = current_user.tasks.where(done: false).order(priority: :desc).page(params[:page])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
       render 'toppages/index'
     end

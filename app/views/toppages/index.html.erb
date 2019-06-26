@@ -9,18 +9,18 @@
     </div>
   <% end %>
   <div class="row">
-    <aside class="col-sm-8">
-      <h1 class="mt-4 pb-4 border-bottom">本日のタスク</h1>
+    <aside class="col-sm-7 mr-5">
+      <h1 class="mt-5 pb-2"><i class="fas fa-tasks mr-3"></i>本日のタスク</h1>
         <%= render 'tasks/tasks', tasks: @today_tasks %>
-      <h2 class="mt-4 pb-4 border-bottom">明日のタスク</h1>
-   　　   <%= render 'tasks/tasks', tasks: @next_tasks %>
-      <h3 class="mt-4 pb-4 border-bottom">残りのタスク</h1>
-    　　  <%= render 'tasks/tasks', tasks: @attempted_tasks %>
+      <h2 class="mt-5 pb-2"><i class="fas fa-tasks mr-3"></i>明日のタスク</h2>
+        <%= render 'tasks/tasks', tasks: @next_tasks %>
+      <h3 class="mt-5 pb-2"><i class="fas fa-tasks mr-3"></i>残りのタスク</h3>
+        <%= render 'tasks/tasks', tasks: @attempted_tasks %>
     </aside>
     <div class="col-sm-4">
       <%= form_with(model: @task, local: true) do |f| %>
         <div class="new_task_form mb-5">
-          <h4 class="mt-4 pb-4 border-bottom"><i class="fas fa-tasks"></i>　新規タスク追加</h3>
+          <h4 class="mt-5 pb-2 border-bottom"><i class="fas fa-pencil-alt mr-3"></i>新規タスク追加</h3>
           <div class="form-group row">
             <label class="col-sm-3 col-form-label">日程</label>
             <div class="col-sm-9">
@@ -39,18 +39,20 @@
               <%= f.text_area :content, class: 'form-control', rows: 3 %>
             </div>
           </div>
-          <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+          <%= f.submit '+ 新規投稿', class: 'submit_btn btn btn-block' %>
         <% end %>
        </div>
       <div class="daily_markdown">
-        <h4 class="mt-4 pb-4 border-bottom"><i class="fab fa-markdown"></i>　Markdown</h3>
-        # 本日のタスク
-        <%= render 'daily-report/markdown', tasks: @today_tasks %>
-        # 明日のタスク
-        <%= render 'daily-report/markdown', tasks: @next_tasks %>
+        <h4 class="mt-5 pb-2 border-bottom"><i class="fab fa-markdown mr-3"></i>Markdown</h3>
+        <div class="copy_box_area">
+          # 本日のタスク
+          <%= render 'daily-report/markdown', tasks: @today_tasks %>
+          ----<br>
+          # 明日のタスク
+          <%= render 'daily-report/markdown', tasks: @next_tasks %>
         </div>
+      </div>
     </div>
-  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
